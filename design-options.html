@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape From Duckov | 视觉方案对比</title>
+  <style>
+    :root {
+      --bg: #0c0c0f;
+      --card-bg: #14161c;
+      --accent: #f2c046;
+      --text: #f5f6f8;
+      --muted: #9aa4b7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 48px 5vw 64px;
+    }
+    header {
+      max-width: 960px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+    }
+    header p { color: var(--muted); margin: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+    }
+    .card h2 {
+      font-size: 1.4rem;
+      margin: 0;
+      letter-spacing: 0.04em;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .palette {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      flex: 1 1 100px;
+      min-width: 90px;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #fff;
+    }
+    .swatch span:last-child {
+      opacity: 0.8;
+      font-size: 0.78rem;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    li { margin-bottom: 6px; }
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+      gap: 10px;
+    }
+    .module {
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(255,255,255,0.16);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-align: center;
+    }
+    .accent-line {
+      height: 2px;
+      width: 60px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Escape From Duckov 视觉方案对比</h1>
+    <p>方案 C（内容矩阵）下的三套视觉与排版方案，选择最契合站点调性的设计基调。</p>
+  </header>
+
+  <section class="grid">
+    <!-- Tactical Noir -->
+    <article class="card">
+      <div>
+        <h2>Tactical Noir</h2>
+        <div class="chip">夜行/硬核战术</div>
+        <div class="accent-line"></div>
+      </div>
+      <div class="palette">
+        <div class="swatch" style="background:#0F141A">
+          <span>Main</span><span>#0F141A</span>
+        </div>
+        <div class="swatch" style="background:#1B232E">
+          <span>Cards</span><span>#1B232E</span>
+        </div>
+        <div class="swatch" style="background:#F2C046;color:#0F141A">
+          <span>Accent</span><span>#F2C046</span>
+        </div>
+        <div class="swatch" style="background:#E5ECF5;color:#0F141A">
+          <span>Text</span><span>#E5ECF5</span>
+        </div>
+      </div>
+      <ul>
+        <li>字体：Inter 系列，标题 SemiBold（字距 0.2em）</li>
+        <li>网格：12 栏 / 1200px / gutter 24px；卡片圆角 8px</li>
+        <li>按钮：48px 高，黄色背景+暗色文字，悬停降亮度</li>
+        <li>背景：深色+轻噪点，Hero 加 HUD overlay</li>
+      </ul>
+      <div class="module-grid">
+        <div class="module">Home Hero<br>左文右图 + HUD</div>
+        <div class="module">Guides / Wiki<br>三列卡片 + Filter</div>
+        <div class="module">Mods / News<br>交错时间线</div>
+        <div class="module">FAQ<br>手风琴 + 细描边</div>
+      </div>
+    </article>
+
+    <!-- Neon Marsh -->
+    <article class="card">
+      <div>
+        <h2>Neon Marsh</h2>
+        <div class="chip">霓虹/沼泽科幻</div>
+        <div class="accent-line" style="background:#35FF8A"></div>
+      </div>
+      <div class="palette">
+        <div class="swatch" style="background:#142A2F">
+          <span>Main</span><span>#142A2F</span>
+        </div>
+        <div class="swatch" style="background:linear-gradient(135deg,#0A1416,#1D2E30)">
+          <span>Background</span><span>Gradient</span>
+        </div>
+        <div class="swatch" style="background:#35FF8A;color:#051313">
+          <span>Primary Accent</span><span>#35FF8A</span>
+        </div>
+        <div class="swatch" style="background:#FF5C8D">
+          <span>Secondary</span><span>#FF5C8D</span>
+        </div>
+      </div>
+      <ul>
+        <li>字体：Space Grotesk Bold + IBM Plex Sans</li>
+        <li>网格：10 栏 / gutter 32px；卡片圆角 16px + 霓虹描边</li>
+        <li>按钮：霓虹外发光 + 玻璃态导航</li>
+        <li>背景：渐变 + 粒子动画，标签用荧光渐变</li>
+      </ul>
+      <div class="module-grid">
+        <div class="module">Home Hero<br>全屏 + 滑动标签</div>
+        <div class="module">Guides<br>亮条标记难度</div>
+        <div class="module">Wiki<br>双栏 + 霓虹滚动条</div>
+        <div class="module">Mods<br>水平滚动卡片</div>
+      </div>
+    </article>
+
+    <!-- Industrial Brass -->
+    <article class="card">
+      <div>
+        <h2>Industrial Brass</h2>
+        <div class="chip">工业/机械复古</div>
+        <div class="accent-line" style="background:#C28B3C"></div>
+      </div>
+      <div class="palette">
+        <div class="swatch" style="background:#1E1F24">
+          <span>Main</span><span>#1E1F24</span>
+        </div>
+        <div class="swatch" style="background:#16171C">
+          <span>Cards</span><span>#16171C</span>
+        </div>
+        <div class="swatch" style="background:#C28B3C;color:#1E1F24">
+          <span>Accent</span><span>#C28B3C</span>
+        </div>
+        <div class="swatch" style="background:#5E7C88">
+          <span>Secondary</span><span>#5E7C88</span>
+        </div>
+      </div>
+      <ul>
+        <li>字体：Orbitron / Bank Gothic + Source Sans Pro</li>
+        <li>网格：12 栏 / gutter 20px；卡片圆角 6px + 铜色描边</li>
+        <li>按钮：矩形 52px，高亮铜色，按压有机械压印</li>
+        <li>背景：拉丝金属纹理 + 斜线，FAQ 展开呈铜色渐变</li>
+      </ul>
+      <div class="module-grid">
+        <div class="module">Home<br>双层卡片 + 铆钉</div>
+        <div class="module">Guides<br>网格 + Tag</div>
+        <div class="module">Mods<br>横向滚动 + 铜标签</div>
+        <div class="module">News<br>齿轮时间轴</div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>
+

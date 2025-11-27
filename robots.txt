@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the site
+
+# Allow main pages
+Allow: /guides.html
+Allow: /wiki.html
+Allow: /mods.html
+Allow: /news.html
+Allow: /about.html
+Allow: /contact.html
+
+# Disallow crawling of specific paths
+Disallow: /assets/
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /icons/
+
+# Sitemap location
+Sitemap: https://escapefromduckov.online/sitemap.xml

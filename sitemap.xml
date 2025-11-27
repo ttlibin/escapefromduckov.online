@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home page -->
+  <url>
+    <loc>https://escapefromduckov.online/index.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About page -->
+  <url>
+    <loc>https://escapefromduckov.online/about.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Guides page -->
+  <url>
+    <loc>https://escapefromduckov.online/guides.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Wiki page -->
+  <url>
+    <loc>https://escapefromduckov.online/wiki.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Mods page -->
+  <url>
+    <loc>https://escapefromduckov.online/mods.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- News page -->
+  <url>
+    <loc>https://escapefromduckov.online/news.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://escapefromduckov.online/contact.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Design Options page (if exists) -->
+  <url>
+    <loc>https://escapefromduckov.online/design-options.html</loc>
+    <lastmod>2025-11-28T00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
