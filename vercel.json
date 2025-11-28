@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "name": "escape-from-duckov",
+  "homepage": "https://escapefromduckov.online/",
+  "routes": [
+    {
+      "src": "index.html",
+      "headers": [
+        {
+          "Cache-Control": "public, max-age=86400"
+        },
+        {
+          "Host": "https://escapefromduckov.online",
+          "Vary": "Accept-Encoding"
+        }
+      ]
+    },
+    {
+      "src": "contact.html",
+      "headers": [
+        {
+          "Cache-Control": "public, max-age=86400"
+        },
+        {
+          "Host": "https://escapefromduckov.online/",
+          "Vary": "Accept-Encoding"
+        }
+      ]
+    }
+  ]
+  }
+}
