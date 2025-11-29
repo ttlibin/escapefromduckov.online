@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/language-selector.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T7L6CHQL0M"></script>
@@ -21,6 +22,9 @@
     gtag('config', 'G-T7L6CHQL0M');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1893638941587898" crossorigin="anonymous"></script>
+
+  <script src="assets/js/video-optimization.js"></script>
+  <script src="assets/js/video-fallback.js"></script>
 </head>
 <body>
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -28,13 +32,39 @@
     <div class="nav__inner">
       <a class="logo" href="index.html">ESCAPE FROM DUCKOV</a>
       <div class="nav__links">
-        <a href="index.html">Home</a>
-        <a href="guides.html">Guides</a>
-        <a class="active" href="wiki.html">Wiki</a>
-        <a href="mods.html">Mods</a>
-        <a href="news.html">News</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-lang="nav_home">Home</a>
+        <a href="guides.html" data-lang="nav_guides">Guides</a>
+        <a class="active" href="wiki.html" data-lang="nav_wiki">Wiki</a>
+        <a href="mods.html" data-lang="nav_mods">Mods</a>
+        <a href="news.html" data-lang="nav_news">News</a>
+        <a href="about.html" data-lang="nav_about">About</a>
+        <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+        <!-- Global Language Selector -->
+        <div class="language-selector">
+          <select id="globalLanguageSelector" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
+
+        <!-- Global Language Selector -->
+        <div class="language-selector">
+          <select id="globalLanguageSelector" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -50,7 +80,12 @@
   <section>
     <div class="container layout-two-column">
       <aside class="card">
-        <img src="images/118.jpg" alt="Escape From Duckov Wiki Database" class="wiki-main-image">
+        <div class="wiki-video-container">
+          <video autoplay muted loop playsinline class="wiki-video" poster="images/118.jpg">
+            <source src="images/131.webm" type="video/webm">
+            <img src="images/118.jpg" alt="Escape From Duckov Wiki Database" class="wiki-main-image">
+          </video>
+        </div>
         <h2>Categories</h2>
         <ul>
           <li><a href="#items">Items & Crafting</a></li>
@@ -232,6 +267,7 @@
     </div>
     <p>© 2025 Escape From Duckov Survival Hub.</p>
   </footer>
+  <script src="assets/js/language-system.js"></script>
 </body>
 </html>
 

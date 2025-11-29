@@ -259,6 +259,30 @@ section {
   pointer-events: none;
 }
 
+/* News content styling */
+.timeline__item h3 {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 24px 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timeline__item ul {
+  margin: 0 0 16px 0;
+  padding-left: 20px;
+}
+
+.timeline__item li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.timeline__item li:last-child {
+  margin-bottom: 0;
+}
+
 .video-card {
   padding: 18px;
 }
@@ -598,7 +622,7 @@ footer .footer-grid {
   100% { left: 100%; }
 }
 
-/* Game Screenshot Display Styles */
+/* Game Screenshot & Video Display Styles */
 .main-game-screenshot {
   width: 100%;
   height: 280px;
@@ -606,6 +630,26 @@ footer .footer-grid {
   border-radius: var(--radius);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   display: block;
+}
+
+.main-game-video {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: block;
+  background: #000;
+}
+
+/* Animated video background styles */
+@keyframes videoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.main-game-video {
+  animation: videoFadeIn 1s ease-in-out;
 }
 
 .video-frame {
@@ -692,7 +736,7 @@ footer .footer-grid {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Guide Card Images */
+/* Guide Card Images & Videos */
 .guide-card-image,
 .mod-card-image,
 .wiki-main-image,
@@ -707,18 +751,124 @@ footer .footer-grid {
   transition: transform var(--transition);
 }
 
+.guide-video-container {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+}
+
+.guide-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
 .guide-card-image:hover,
 .mod-card-image:hover,
 .wiki-main-image:hover,
 .news-item-image:hover,
-.contact-image:hover {
+.contact-image:hover,
+.guide-video-container:hover,
+.wiki-video-container:hover,
+.mod-video-container:hover,
+.news-video-container:hover,
+.contact-video-container:hover {
   transform: scale(1.02);
+}
+
+/* Video animation on hover */
+@keyframes videoPlay {
+  0% { opacity: 0.85; }
+  50% { opacity: 1; }
+  100% { opacity: 0.85; }
+}
+
+.guide-video-container:hover .guide-video {
+  animation: videoPlay 2s ease-in-out infinite;
 }
 
 /* Special sizing for wiki main image */
 .wiki-main-image {
   height: 250px;
   margin-bottom: 20px;
+}
+
+.wiki-video-container {
+  width: 100%;
+  height: 250px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+}
+
+.wiki-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.mod-video-container {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+}
+
+.mod-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.news-video-container {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+}
+
+.news-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.contact-video-container {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+}
+
+.contact-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
 }
 
 /* Feature Card Images */

@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mods-search-new.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T7L6CHQL0M"></script>
@@ -17,10 +18,13 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-T7L6CHQL0M');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1893638941587898" crossorigin="anonymous"></script>
+
+  <script src="assets/js/video-optimization.js"></script>
+  <script src="assets/js/video-fallback.js"></script>
+  <script src="assets/js/mods-search.js"></script>
 </head>
 <body>
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -28,13 +32,27 @@
     <div class="nav__inner">
       <a class="logo" href="index.html">ESCAPE FROM DUCKOV</a>
       <div class="nav__links">
-        <a href="index.html">Home</a>
-        <a href="guides.html">Guides</a>
-        <a href="wiki.html">Wiki</a>
-        <a class="active" href="mods.html">Mods</a>
-        <a href="news.html">News</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-lang="nav_home">Home</a>
+        <a href="guides.html" data-lang="nav_guides">Guides</a>
+        <a href="wiki.html" data-lang="nav_wiki">Wiki</a>
+        <a class="active" href="mods.html" data-lang="nav_mods">Mods</a>
+        <a href="news.html" data-lang="nav_news">News</a>
+        <a href="about.html" data-lang="nav_about">About</a>
+        <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+        <!-- Global Language Selector -->
+        <div class="language-selector">
+          <select id="globalLanguageSelector" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
+      </div>
       </div>
     </div>
   </nav>
@@ -47,42 +65,48 @@
     </div>
   </header>
 
+  <!-- Search and Filter Section -->
   <section>
     <div class="container">
-      <div class="grid-3">
-        <article class="card">
-          <img src="images/119.jpg" alt="First Person View Mod" class="mod-card-image">
-          <span class="tag">Perspective</span>
-          <h2>First Person Toggle</h2>
-          <p>Press F5 to swap between third-person and first-person views. Includes mouse smoothing options and HUD realignment.</p>
-        </article>
-        <article class="card">
-          <img src="images/120.jpg" alt="Boss Tracker Mod" class="mod-card-image">
-          <span class="tag">Tracking</span>
-          <h2>Live Boss Markers</h2>
-          <p>Marks boss positions with a red icon, refreshing every 15 seconds. Ideal for tournament runs.</p>
-        </article>
-        <article class="card">
-          <img src="images/121.jpg" alt="Item Value Display" class="mod-card-image">
-          <span class="tag">Economy</span>
-          <h2>Show Item Value</h2>
-          <p>Displays vendor value and rarity color while looting, helping you prioritize backpack slots.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Quality of Life</span>
-          <h2>Better Hunger & Thirst</h2>
-          <p>Numeric overlays reveal current hydration/energy and remaining capacity, reducing guesswork.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Questing</span>
-          <h2>Quest Map Overlay</h2>
-          <p>Pins quest items directly on the map. Markers persist until quest completion.</p>
-        </article>
-        <article class="card">
-          <span class="tag">LAN Co-op</span>
-          <h2>Multiplayer Package</h2>
-          <p>Combines Workshop scripts with Radmin VPN setup for two-player raids. Expect bugs; read notes carefully.</p>
-        </article>
+      <!-- Search Bar -->
+      <div class="search-section">
+        <input
+          type="text"
+          id="modSearchInput"
+          class="mod-search-input"
+          placeholder="Search for MODs by name, author, or tags..."
+        >
+        <button id="searchButton" class="search-button">Search</button>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-category="All">All</button>
+        <button class="filter-btn" data-category="Interface">Interface</button>
+        <button class="filter-btn" data-category="Storage">Storage</button>
+        <button class="filter-btn" data-category="Economy">Economy</button>
+        <button class="filter-btn" data-category="Utility">Utility</button>
+        <button class="filter-btn" data-category="Combat">Combat</button>
+        <button class="filter-btn" data-category="Maps">Maps</button>
+        <button class="filter-btn" data-category="Audio">Audio</button>
+      </div>
+
+      <!-- Sort Options -->
+      <div class="sort-options">
+        <span>Sort by:</span>
+        <button class="sort-btn active" data-sort="updated">Recently Updated</button>
+        <button class="sort-btn" data-sort="downloads">Most Downloaded</button>
+        <button class="sort-btn" data-sort="rating">Highest Rated</button>
+        <button class="sort-btn" data-sort="name">Name (A-Z)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic MOD Display -->
+  <section>
+    <div class="container">
+      <div id="modDisplay" class="mod-grid">
+        <!-- MOD cards will be dynamically inserted here by JavaScript -->
       </div>
     </div>
   </section>
@@ -93,9 +117,9 @@
         <h2>Installation Checklist</h2>
         <ol>
           <li>Subscribe via Steam Workshop.</li>
-          <li>Verify load order inside Escape From Duckov’s mod manager tab.</li>
+          <li>Verify load order inside Escape From Duckov's mod manager tab.</li>
           <li>Back up save files at <code>AppData\LocalLow\Duckov</code>.</li>
-          <li>Launch the game with “Enable Mods” toggled on the splash screen.</li>
+          <li>Launch game with "Enable Mods" toggled on splash screen.</li>
         </ol>
       </article>
       <article class="card">
@@ -113,12 +137,12 @@
 
   <section>
     <div class="container card">
-      <h2>LAN Co-op Blueprint</h2>
-      <p>Escape From Duckov is officially solo, but the community discovered a stable two-player method:</p>
+      <h2>社区共创蓝图：本地多人与主机直连</h2>
+      <p>Escape From Duckov is officially solo, but community discovered a stable two-player method:</p>
       <ul>
         <li>Create a private network with Radmin VPN.</li>
-        <li>Install the Multiplayer Package mod bundle.</li>
-        <li>Set both clients to “Host Migration” mode before launching a raid.</li>
+        <li>Install Multiplayer Package mod bundle.</li>
+        <li>Set both clients to "Host Migration" mode before launching a raid.</li>
         <li>Use in-game console to sync inventories after extraction.</li>
       </ul>
       <p>Disclaimer: expect desyncs; always back up saves.</p>
@@ -150,6 +174,6 @@
     </div>
     <p>© 2025 Escape From Duckov Survival Hub.</p>
   </footer>
+  <script src="assets/js/language-system.js"></script>
 </body>
 </html>
-

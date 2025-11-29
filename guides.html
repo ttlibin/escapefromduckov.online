@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/language-selector.css">
   <link rel="icon" type="image/png" href="assets/icons/duckov-favicon.png">
 
   <!-- Google tag (gtag.js) -->
@@ -22,6 +23,9 @@
     gtag('config', 'G-T7L6CHQL0M');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1893638941587898" crossorigin="anonymous"></script>
+
+  <script src="assets/js/video-optimization.js"></script>
+  <script src="assets/js/video-fallback.js"></script>
 </head>
 <body>
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -29,13 +33,26 @@
     <div class="nav__inner">
       <a class="logo" href="index.html">ESCAPE FROM DUCKOV</a>
       <div class="nav__links">
-        <a href="index.html">Home</a>
-        <a class="active" href="guides.html">Guides</a>
-        <a href="wiki.html">Wiki</a>
-        <a href="mods.html">Mods</a>
-        <a href="news.html">News</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-lang="nav_home">Home</a>
+        <a class="active" href="guides.html" data-lang="nav_guides">Guides</a>
+        <a href="wiki.html" data-lang="nav_wiki">Wiki</a>
+        <a href="mods.html" data-lang="nav_mods">Mods</a>
+        <a href="news.html" data-lang="nav_news">News</a>
+        <a href="about.html" data-lang="nav_about">About</a>
+        <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+        <!-- Global Language Selector -->
+        <div class="language-selector">
+          <select id="globalLanguageSelector" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -62,7 +79,12 @@
       </div>
       <div class="grid-3">
         <article class="card">
-          <img src="images/112.jpg" alt="Sunken Reeds Map" class="guide-card-image">
+          <div class="guide-video-container">
+            <video autoplay muted loop playsinline class="guide-video" poster="images/112.jpg">
+              <source src="images/132.webm" type="video/webm">
+              <img src="images/112.jpg" alt="Sunken Reeds Map" class="guide-card-image">
+            </video>
+          </div>
           <span class="tag">Sunken Reeds</span>
           <h2>Bootstrapping in the Marsh</h2>
           <p>Guide for new Escape From Duckov players: safe spawn loops, medical stash rotation, and early extraction timing.</p>
@@ -73,31 +95,56 @@
           </ul>
         </article>
         <article class="card">
-          <img src="images/113.jpg" alt="Neon Garrison Rooftops" class="guide-card-image">
+          <div class="guide-video-container">
+            <video autoplay muted loop playsinline class="guide-video" poster="images/113.jpg">
+              <source src="images/133.webm" type="video/webm">
+              <img src="images/113.jpg" alt="Neon Garrison Rooftops" class="guide-card-image">
+            </video>
+          </div>
           <span class="tag">Neon Garrison</span>
           <h2>Rooftop Boss Hunt</h2>
           <p>Track migrating bosses and use vertical flanks to control the skyline. Includes drone path overlays and EMP usage tips.</p>
         </article>
         <article class="card">
-          <img src="images/114.jpg" alt="Seed Runner Contracts" class="guide-card-image">
+          <div class="guide-video-container">
+            <video autoplay muted loop playsinline class="guide-video" poster="images/114.jpg">
+              <source src="images/134.webm" type="video/webm">
+              <img src="images/114.jpg" alt="Seed Runner Contracts" class="guide-card-image">
+            </video>
+          </div>
           <span class="tag">Contracts</span>
           <h2>Seed Runner Contracts</h2>
           <p>Step-by-step instructions to maximize black market payouts by stacking three courier contracts in one raid.</p>
         </article>
         <article class="card">
-          <img src="images/115.jpg" alt="Polar Gravel Snow" class="guide-card-image">
+          <div class="guide-video-container">
+            <video autoplay muted loop playsinline class="guide-video" poster="images/115.jpg">
+              <source src="images/135.webm" type="video/webm">
+              <img src="images/115.jpg" alt="Polar Gravel Snow" class="guide-card-image">
+            </video>
+          </div>
           <span class="tag">Polar Gravel</span>
           <h2>Cold Weather Arsenal</h2>
           <p>How temperature affects recoil, thermal optics, and stamina drain. Includes gear chart for surviving blizzards.</p>
         </article>
         <article class="card">
-          <img src="images/116.jpg" alt="Ember Coop Base" class="guide-card-image">
+          <div class="guide-video-container">
+            <video autoplay muted loop playsinline class="guide-video" poster="images/116.jpg">
+              <source src="images/136.webm" type="video/webm">
+              <img src="images/116.jpg" alt="Ember Coop Base" class="guide-card-image">
+            </video>
+          </div>
           <span class="tag">Ember Coop</span>
           <h2>Base Siege Scenarios</h2>
           <p>Best angles for breaching fortified chicken bunkers plus turret disablement tactics using EMP seedpods.</p>
         </article>
         <article class="card">
-          <img src="images/117.jpg" alt="Skygrain Port" class="guide-card-image">
+          <div class="guide-video-container">
+            <video autoplay muted loop playsinline class="guide-video" poster="images/117.jpg">
+              <source src="images/131.webm" type="video/webm">
+              <img src="images/117.jpg" alt="Skygrain Port" class="guide-card-image">
+            </video>
+          </div>
           <span class="tag">Skygrain Port</span>
           <h2>Freighter Extraction Routes</h2>
           <p>Overlay for rotating crates, crane access, and last-minute evac jumps during storm cycles.</p>
@@ -165,6 +212,7 @@
     </div>
     <p>© 2025 Escape From Duckov Survival Hub.</p>
   </footer>
+  <script src="assets/js/language-system.js"></script>
 </body>
 </html>
 

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Language Fix</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav__inner">
+            <a class="logo" href="index.html">ESCAPE FROM DUCKOV</a>
+            <div class="nav__links">
+                <a href="index.html" data-lang="nav_home">Home</a>
+                <a href="guides.html" data-lang="nav_guides">Guides</a>
+                <a href="wiki.html" data-lang="nav_wiki">Wiki</a>
+                <a href="mods.html" data-lang="nav_mods">Mods</a>
+                <a href="news.html" data-lang="nav_news">News</a>
+                <a href="about.html" data-lang="nav_about">About</a>
+                <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+                <div class="language-selector">
+                    <select id="globalLanguageSelector" class="language-dropdown">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="zh-CN">🇨🇳 简体中文</option>
+                        <option value="zh-TW">🇹🇼 繁體中文</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="fr">🇫🇷 Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding: 20px;">
+        <h1>验证语言修复</h1>
+
+        <div style="margin: 20px 0; padding: 15px; background: #f0f8ff; border-radius: 5px;">
+            <h3>验证步骤：</h3>
+            <ol>
+                <li>使用上面的语言选择器切换到"简体中文"</li>
+                <li>观察导航栏中的所有链接</li>
+                <li>确认所有7个导航项都被翻译成中文</li>
+                <li>打开浏览器控制台（F12）查看详细日志</li>
+            </ol>
+        </div>
+
+        <div style="margin: 20px 0; padding: 15px; background: #fffacd; border-radius: 5px;">
+            <h3>期望结果：</h3>
+            <ul>
+                <li><strong>HOME</strong> → <strong>首页</strong> ✅</li>
+                <li><strong>GUIDES</strong> → <strong>指南</strong> ✅</li>
+                <li><strong>WIKI</strong> → <strong>维基</strong> ✅</li>
+                <li><strong>MODS</strong> → <strong>MOD</strong> ✅</li>
+                <li><strong>NEWS</strong> → <strong>资讯</strong> ✅</li>
+                <li><strong>ABOUT</strong> → <strong>关于</strong> ✅</li>
+                <li><strong>CONTACT</strong> → <strong>联系</strong> ✅</li>
+            </ul>
+        </div>
+
+        <button onclick="showCurrentStatus()">显示当前状态</button>
+        <button onclick="testAllLanguages()">测试所有语言</button>
+        <button onclick="clearDebugInfo()">清除调试信息</button>
+
+        <div id="debug-info" style="margin-top: 20px; padding: 15px; background: #f5f5f5; font-family: monospace; white-space: pre-wrap; max-height: 300px; overflow-y: auto; display: none;">
+        </div>
+    </div>
+
+    <script src="assets/js/language-system.js"></script>
+    <script>
+        function showCurrentStatus() {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.style.display = 'block';
+
+            let status = '=== 当前语言系统状态 ===\n\n';
+
+            if (!window.languageSystem) {
+                status += '❌ 语言系统未找到\n';
+            } else {
+                const langSystem = window.languageSystem;
+                status += `✅ 语言系统已找到\n`;
+                status += `当前语言: ${langSystem.currentLanguage}\n`;
+                status += `支持的语言: ${Object.keys(langSystem.translations).join(', ')}\n\n`;
+
+                const currentTranslations = langSystem.translations[langSystem.currentLanguage];
+                status += '当前翻译数据:\n';
+                ['nav_home', 'nav_guides', 'nav_wiki', 'nav_mods', 'nav_news', 'nav_about', 'nav_contact'].forEach(key => {
+                    const translation = currentTranslations[key];
+                    status += `  ${key}: "${translation}"\n`;
+                });
+
+                status += '\n当前DOM状态:\n';
+                const navLinks = document.querySelectorAll('.nav__links a[data-lang]');
+                navLinks.forEach((link, index) => {
+                    const langKey = link.getAttribute('data-lang');
+                    const currentText = link.textContent.trim();
+                    const expectedText = currentTranslations[langKey];
+                    const isCorrect = currentText === expectedText;
+
+                    status += `  [${index + 1}] ${langKey}: "${currentText}" ${isCorrect ? '✅' : '❌'}\n`;
+                    if (!isCorrect && expectedText) {
+                        status += `      期望: "${expectedText}"\n`;
+                    }
+                });
+            }
+
+            debugDiv.textContent = status;
+        }
+
+        function testAllLanguages() {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.style.display = 'block';
+
+            let status = '=== 测试所有语言 ===\n\n';
+
+            if (!window.languageSystem) {
+                status += '❌ 语言系统未找到\n';
+            } else {
+                const langSystem = window.languageSystem;
+                const languages = ['en', 'zh-CN', 'zh-TW', 'ja', 'ko', 'de', 'fr'];
+                const navKeys = ['nav_home', 'nav_guides', 'nav_wiki', 'nav_mods', 'nav_news', 'nav_about', 'nav_contact'];
+
+                languages.forEach(lang => {
+                    status += `--- 语言: ${lang} ---\n`;
+                    const translations = langSystem.translations[lang];
+
+                    if (!translations) {
+                        status += '❌ 翻译数据未找到\n';
+                        return;
+                    }
+
+                    let allComplete = true;
+                    navKeys.forEach(key => {
+                        const translation = translations[key];
+                        if (!translation) {
+                            status += `  ❌ ${key}: 未找到\n`;
+                            allComplete = false;
+                        } else {
+                            status += `  ✅ ${key}: "${translation}"\n`;
+                        }
+                    });
+
+                    status += allComplete ? '  翻译完整\n\n' : '  翻译不完整\n\n';
+                });
+            }
+
+            debugDiv.textContent = status;
+        }
+
+        function clearDebugInfo() {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.style.display = 'none';
+            debugDiv.textContent = '';
+        }
+
+        // 页面加载后自动显示状态
+        setTimeout(showCurrentStatus, 1500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language System Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .pass { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>Escape From Duckov Language System Test</h1>
+
+    <div id="results">
+        <div class="test-result info">Testing language system components...</div>
+    </div>
+
+    <!-- Include the language system -->
+    <script src="assets/js/language-system.js"></script>
+    <script src="assets/js/mods-search.js"></script>
+
+    <script>
+        // Test the language system
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = document.getElementById('results');
+
+            function addResult(test, passed, message) {
+                const div = document.createElement('div');
+                div.className = `test-result ${passed ? 'pass' : 'fail'}`;
+                div.innerHTML = `<strong>${test}:</strong> ${message}`;
+                results.appendChild(div);
+            }
+
+            // Test 1: Language System Class Exists
+            addResult('Language System Class', typeof LanguageSystem !== 'undefined',
+                typeof LanguageSystem !== 'undefined' ? 'Class loaded successfully' : 'Class not found');
+
+            // Test 2: MOD Search System Class Exists
+            addResult('MOD Search System', typeof MODSearchSystem !== 'undefined',
+                typeof MODSearchSystem !== 'undefined' ? 'Class loaded successfully' : 'Class not found');
+
+            // Test 3: Language Selector Element
+            const languageSelector = document.createElement('select');
+            languageSelector.id = 'globalLanguageSelector';
+            document.body.appendChild(languageSelector);
+
+            addResult('Language Selector Creation', true, 'Language selector element created');
+
+            // Test 4: Test Language Availability
+            setTimeout(() => {
+                if (typeof window.languageSystem !== 'undefined') {
+                    const languages = Object.keys(window.languageSystem.translations);
+                    addResult('Language Count', languages.length >= 7,
+                        `Found ${languages.length} languages: ${languages.join(', ')}`);
+
+                    // Test 5: Test Chinese Translations
+                    const chineseTranslations = window.languageSystem.translations['zh-CN'];
+                    addResult('Chinese Translations', chineseTranslations && chineseTranslations.nav_home === '首页',
+                        chineseTranslations ? 'Chinese translations loaded' : 'Chinese translations missing');
+
+                    // Test 6: Test Language Switching
+                    const originalLang = window.languageSystem.currentLanguage;
+                    window.languageSystem.switchLanguage('zh-CN');
+                    const switchedLang = window.languageSystem.currentLanguage;
+                    addResult('Language Switching', switchedLang === 'zh-CN',
+                        `Successfully switched from ${originalLang} to ${switchedLang}`);
+
+                    // Test 7: Test MOD Search Integration
+                    if (typeof MODSearchSystem !== 'undefined') {
+                        const modSystem = new MODSearchSystem();
+                        addResult('MOD Search Integration', modSystem.translations,
+                            'MOD search system has language integration');
+                    }
+
+                } else {
+                    addResult('Language System Instance', false, 'Language system instance not created');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

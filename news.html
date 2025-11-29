@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/language-selector.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T7L6CHQL0M"></script>
@@ -21,6 +22,10 @@
     gtag('config', 'G-T7L6CHQL0M');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1893638941587898" crossorigin="anonymous"></script>
+
+  <script src="assets/js/video-optimization.js"></script>
+  <script src="assets/js/video-fallback.js"></script>
+  <script src="assets/js/language-system.js"></script>
 </head>
 <body>
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -28,13 +33,26 @@
     <div class="nav__inner">
       <a class="logo" href="index.html">ESCAPE FROM DUCKOV</a>
       <div class="nav__links">
-        <a href="index.html">Home</a>
-        <a href="guides.html">Guides</a>
-        <a href="wiki.html">Wiki</a>
-        <a href="mods.html">Mods</a>
-        <a class="active" href="news.html">News</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-lang="nav_home">Home</a>
+        <a href="guides.html" data-lang="nav_guides">Guides</a>
+        <a href="wiki.html" data-lang="nav_wiki">Wiki</a>
+        <a href="mods.html" data-lang="nav_mods">Mods</a>
+        <a class="active" href="news.html" data-lang="nav_news">News</a>
+        <a href="about.html" data-lang="nav_about">About</a>
+        <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+        <!-- Global Language Selector -->
+        <div class="language-selector">
+          <select id="globalLanguageSelector" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -51,23 +69,191 @@
     <div class="container">
       <div class="timeline">
         <article class="timeline__item card">
-          <img src="images/122.jpg" alt="Update 1.4 Gilded Seeds" class="news-item-image">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/142.png">
+              <source src="images/132.webm" type="video/webm">
+              <img src="images/142.png" alt="3 Million Ducklings Milestone" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">November 8, 2025</p>
+          <h2>3 Million Ducklings in Duckov - THANK YOU!</h2>
+          <p>🦆 <strong>Three million Ducklings have gathered!</strong></p>
+          <p>Whether you're a newcomer just joining Duckov, a seasoned duck with a warehouse full of treasures, or a creative duck who loves to share Duckov with others, or a MOD duck making Duckov shine with your imagination and codes—</p>
+          <p>💚 Thank you to every Duckling! 💚</p>
+          <p>Because of you, Duckov stays full of life! The journey of Duckov is far from over—We'll keep bringing you new content and an even better experience. Quack on!</p>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/143.png">
+              <source src="images/134.webm" type="video/webm">
+              <img src="images/143.png" alt="2 Million Ducklings Milestone" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">October 28, 2025</p>
+          <h2>2 Million Ducklings in Duckov - THANK YOU!</h2>
+          <p><strong>2 million ducklings are now waddling through Duckov!</strong></p>
+          <p>A massive thank you to every player & our amazing MOD creators who helped build this incredible community!</p>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/144.png">
+              <source src="images/133.webm" type="video/webm">
+              <img src="images/144.png" alt="Duckov Mod Safety Tips" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">October 27, 2025</p>
+          <h2>Duckov Mod Safety Tips</h2>
+          <p>We've noticed a recent increase in mod-related issues, including:</p>
+
+          <h3>⚠️ Mod Safety Guidelines</h3>
+          <ul>
+            <li>❌ Unstable mods that can corrupt game data or save files</li>
+            <li>❌ Suspicious or fake mods that may threaten your account security or privacy</li>
+          </ul>
+
+          <p>To help you mod safely, we've put together this Mod Safety Tips. Please take a moment to read through these tips — your game (and your ducks) will thank you!</p>
+
+          <h3>✅ Best Practices</h3>
+          <ul>
+            <li>Verify Source - Stick to trusted platforms like Steam Workshop</li>
+            <li>Beware of Paid Mods - Mods are meant to be freely shared</li>
+            <li>Choose Popular, Well-Supported Mods with good reviews</li>
+            <li>Back Up Your Saves - Always backup before installing mods</li>
+            <li>Test One Mod at a Time - Makes troubleshooting easier</li>
+          </ul>
+
+          <h3>🚨 Final Reminders</h3>
+          <p>Stay curious, stay creative, and keep those ducks safe! If you need help or have concerns, reach out to us on Discord or via our support email.</p>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/141.png">
+              <source src="images/136.webm" type="video/webm">
+              <img src="images/141.png" alt="Update Log V1.2.5" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">Thu, November 20, 2025</p>
+          <h2>Update Log V1.2.5</h2>
+          <p>Major performance improvements, mod support enhancements, and quality-of-life fixes for Escape From Duckov. This update includes new mod APIs, improved save system, and various bug fixes.</p>
+
+          <h3>Key Updates</h3>
+          <ul>
+            <li>Adjusted auto-save policy to reduce frequent stuttering in the base</li>
+            <li>Increased the number of save slots to 6</li>
+            <li>Depleted items now appear in trading interfaces</li>
+            <li>Pan can now be equipped</li>
+            <li>Improved mod loading logic and API support</li>
+          </ul>
+
+          <h3>MOD Related Updates</h3>
+          <ul>
+            <li>Added ItemBuilder API for creating custom item "Prefabs"</li>
+            <li>Improved mod INI parsing logic</li>
+            <li>Enhanced save game compatibility with mod configurations</li>
+          </ul>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/145.png">
+              <source src="images/132.webm" type="video/webm">
+              <img src="images/145.png" alt="1 Million Ducklings Milestone" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">October 22, 2025</p>
+          <h2>1 MILLION Ducklings in Duckov - THANK YOU!</h2>
+          <p>Another incredible milestone! Over 1,000,000 ducklings have now waddled into the world of Duckov - and we couldn't be more excited (and honored).</p>
+
+          <h3>A Moment to Say THANK YOU</h3>
+          <p>At this unbelievable achievement, we're floating (okay, maybe spinning) in disbelief -- but mostly, we're deeply, sincerely grateful.</p>
+
+          <p><strong>THANK YOU to every single duckling who's played, supported, and believed in Duckov. We couldn't have done it without you.</strong></p>
+
+          <p>Your passion, your feedback, your laughs - they're what makes this game, and this journey, so special.</p>
+
+          <h3>Let's Keep Flying Together</h3>
+          <p>Here's to the next million - and all adventures still to come. We're so glad you're here. Let's keep quacking higher, together.</p>
+
+          <p><strong>Launch Discount is Still Quacking On!</strong></p>
+          <p>12% Discount. Only $15.83 Until Oct 29!</p>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/147.png">
+              <source src="images/134.webm" type="video/webm">
+              <img src="images/147.png" alt="Overwhelmingly Positive Reviews" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">October 21, 2025</p>
+          <h2>Escape from Duckov is NOW "Overwhelmingly Positive"</h2>
+          <p>To every duckling who played, supported, reviewed, and shared their thoughts:</p>
+
+          <p>Thank you from the bottom of our webbed feet.</p>
+
+          <h3>Every Review, Every Rating, Every Moment Matters</h3>
+          <p>Every review, every rating, every moment you spent in Duckov - it all means the world to us.</p>
+
+          <p>This milestone belongs to our amazing community - heart, soul, and wings of Duckov.</p>
+
+          <h3>Let's Keep Adventure Going</h3>
+          <p>Together, we'll make Duckov even better.</p>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/146.png">
+              <source src="images/135.webm" type="video/webm">
+              <img src="images/146.png" alt="Escape From Duckov Mod Guide" class="news-item-image">
+            </video>
+          </div>
+          <p class="status-pill">October 28, 2025</p>
+          <h2>Escape from Duckov | Mod Guide​</h2>
+          <p>The World of Duckov Goes Beyond Loot—​</p>
+          <p>Every creative duckling can add their own colors to Duckov through Mods. 💚</p>
+
+          <h3>💡 Why We Embrace Mods​​</h3>
+          <p>Since game's announcement, your feedback and imaginative ideas have been vital to our development process.</p>
+          <p>We've always believed that Duckov's potential extends far beyond what our dev team alone can envision—it thrives on co-creation by players and creators.</p>
+          <p>A vibrant Mod ecosystem can help Duckov evolve, becoming more dynamic and diverse!</p>
+        </article>
+        <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/122.jpg">
+              <source src="images/132.webm" type="video/webm">
+              <img src="images/122.jpg" alt="Update 1.4 Gilded Seeds" class="news-item-image">
+            </video>
+          </div>
           <p class="status-pill">Nov 20, 2025</p>
           <h2>Update 1.4 "Gilded Seeds"</h2>
           <p>Escape From Duckov patch 1.4 adds the Seed Vault side quest, two new melee weapons, and improved AI pathing inside Neon Garrison. Extraction timers were extended by 60 seconds on Extreme+ to accommodate new boss routes.</p>
         </article>
         <article class="timeline__item card">
-          <img src="images/124.jpg" alt="Halloween Loot Run Event" class="news-item-image">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/124.jpg">
+              <source src="images/133.webm" type="video/webm">
+              <img src="images/124.jpg" alt="Halloween Loot Run Event" class="news-item-image">
+            </video>
+          </div>
           <p class="status-pill">Nov 12, 2025</p>
           <h2>Community Spotlight: Halloween Loot Run</h2>
           <p>Players collected toy bells, coin swords, and candy guns in record time. Our gallery features the fastest routes and hideout decorations.</p>
         </article>
         <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/135.jpg">
+              <source src="images/135.webm" type="video/webm">
+              <img src="images/135.jpg" alt="Workshop Refresh" class="news-item-image">
+            </video>
+          </div>
           <p class="status-pill">Oct 30, 2025</p>
           <h2>Workshop Refresh</h2>
-          <p>Ten new Escape From Duckov mods qualified as “Stable,” including Show Item Quantity and Better Key Indicator. See the mods page for load order recommendations.</p>
+          <p>Ten new Escape From Duckov mods qualified as "Stable," including Show Item Quantity and Better Key Indicator. See the mods page for load order recommendations.</p>
         </article>
         <article class="timeline__item card">
+          <div class="news-video-container">
+            <video autoplay muted loop playsinline class="news-video" poster="images/136.jpg">
+              <source src="images/136.webm" type="video/webm">
+              <img src="images/136.jpg" alt="Official Release Recap" class="news-item-image">
+            </video>
+          </div>
           <p class="status-pill">Oct 16, 2025</p>
           <h2>Official Release Recap</h2>
           <p>Escape From Duckov launched on Steam with 96% positive reviews. Our release-day article collects beginner FAQs and system requirements.</p>
@@ -124,6 +310,7 @@
     </div>
     <p>© 2025 Escape From Duckov Survival Hub.</p>
   </footer>
+  <script src="assets/js/language-system.js"></script>
 </body>
 </html>
 

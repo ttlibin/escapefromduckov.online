@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOD System Test</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mods-search-new.css">
+  <style>
+    body { padding: 20px; background: #1a1a1a; color: #fff; }
+    #testDisplay { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>MOD System Test</h1>
+  <button onclick="testModSystem()">Test MOD System</button>
+  <div id="testDisplay"></div>
+
+  <script src="assets/js/mods-search.js"></script>
+  <script>
+    function testModSystem() {
+      console.log('Testing MOD system...');
+
+      // Wait for the system to initialize
+      setTimeout(() => {
+        const testMod = {
+          name: 'Test MOD',
+          description: 'This is a test MOD to verify the display system works correctly.',
+          image: 'images/151.jpg',
+          video: 'images/151.webm',
+          category: 'Interface',
+          steamId: '3589651647'
+        };
+
+        const modSystem = new MODSearchSystem();
+        const testDisplay = document.getElementById('testDisplay');
+
+        try {
+          const testCard = modSystem.createModCard(testMod);
+          testDisplay.appendChild(testCard);
+          console.log('Test MOD card created successfully!');
+        } catch (error) {
+          console.error('Error creating test MOD card:', error);
+          testDisplay.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

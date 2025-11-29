@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/language-selector.css">
   <link rel="icon" type="image/png" href="assets/icons/duckov-favicon-clean.svg">
 
   <!-- Google tag (gtag.js) -->
@@ -25,6 +26,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1893638941587898"
      crossorigin="anonymous"></script>
 
+  <script src="assets/js/video-optimization.js"></script>
   <script src="assets/js/video-fallback.js"></script>
 </head>
 <body>
@@ -33,13 +35,26 @@
     <div class="nav__inner">
       <a class="logo" href="index.html">ESCAPE FROM DUCKOV</a>
       <div class="nav__links">
-        <a class="active" href="index.html">Home</a>
-        <a href="guides.html">Guides</a>
-        <a href="wiki.html">Wiki</a>
-        <a href="mods.html">Mods</a>
-        <a href="news.html">News</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a class="active" href="index.html" data-lang="nav_home">Home</a>
+        <a href="guides.html" data-lang="nav_guides">Guides</a>
+        <a href="wiki.html" data-lang="nav_wiki">Wiki</a>
+        <a href="mods.html" data-lang="nav_mods">Mods</a>
+        <a href="news.html" data-lang="nav_news">News</a>
+        <a href="about.html" data-lang="nav_about">About</a>
+        <a href="contact.html" data-lang="nav_contact">Contact</a>
+
+        <!-- Global Language Selector -->
+        <div class="language-selector">
+          <select id="globalLanguageSelector" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -58,7 +73,10 @@
         <p class="section-title">Official Showcase</p>
         <h3>Escape From Duckov Launch Reel</h3>
         <div class="video-frame" id="video-container">
-          <img src="images/123.jpg" alt="Escape From Duckov - Official Screenshot" class="main-game-screenshot">
+          <video autoplay muted loop playsinline class="main-game-video" poster="images/123.jpg">
+            <source src="images/131.webm" type="video/webm">
+            <img src="images/123.jpg" alt="Escape From Duckov - Official Screenshot" class="main-game-screenshot">
+          </video>
           <div class="screenshot-overlay">
             <a href="https://www.youtube.com/watch?v=sSlRUkJx050" target="_blank" rel="noopener noreferrer" class="video-link-btn">
               <div class="play-button-large">
@@ -304,6 +322,7 @@
     ]
   }
   </script>
+  <script src="assets/js/language-system.js"></script>
 </body>
 </html>
 
